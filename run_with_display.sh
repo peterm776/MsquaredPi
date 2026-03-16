@@ -9,7 +9,7 @@ if [ ! -f "minecraft-pi" ]; then
     echo " Downloading Minecraft Pi client (original binary) "
     echo "=========================================================="
     echo "Fetching from official minecraft.net site..."
-    curl -L -o minecraft-pi-0.1.1.tar.gz.zip "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/minecraft-pi-0.1.1.tar.gz.zip"
+    curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" -L -o minecraft-pi-0.1.1.tar.gz.zip "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/minecraft-pi-0.1.1.tar.gz.zip"
     
     if [ -f "minecraft-pi-0.1.1.tar.gz.zip" ]; then
         echo "Extracting client..."
