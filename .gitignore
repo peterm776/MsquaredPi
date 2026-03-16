@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Minecraft Pi 
+games/
+options.txt
+*.zip
+*.tar.gz
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp

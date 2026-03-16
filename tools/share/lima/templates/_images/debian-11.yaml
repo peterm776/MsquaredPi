@@ -1,0 +1,30 @@
+# DEPRECATED: Debian 11 (Bullseye) is deprecated. Use debian-12 (Bookworm) or debian-13 (Trixie) instead.
+images:
+# Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
+
+- location: "https://cloud.debian.org/images/cloud/bullseye/20251015-2266/debian-11-genericcloud-amd64-20251015-2266.qcow2"
+  arch: "x86_64"
+  digest: "sha512:ea6db13cf1946f5156ae6384cadde557062b21cd8ff7950eb9e3ff7fc300554533a929661b955957d9df9f8ac7f48153a5714ed4d141e374f1a2ca5d197b9770"
+- location: "https://cloud.debian.org/images/cloud/bullseye/20251015-2266/debian-11-genericcloud-arm64-20251015-2266.qcow2"
+  arch: "aarch64"
+  digest: "sha512:e0ff1467548cac6c7dc5a7c71af4c2e942f0e6ce57f95e03df57828d9ad3adc00f52579d3f7bfe18f5a4ca098f9841d90e4026ae34162da8b7aadcaf7e762a2b"
+- location: "https://cloud.debian.org/images/cloud/bullseye/20250703-2162/debian-11-genericcloud-ppc64el-20250703-2162.qcow2"
+  arch: "ppc64le"
+  digest: "sha512:71f0039d3ae46504d189f009f91fb9fa9873153d250969b56a4656d75caec17356705237d7926153e2c10d9251dc4909ec34a2afa7256a9359df279cbde8d679"
+# Fallback to the latest release image.
+# Hint: run `limactl prune` to invalidate the cache
+
+- location: https://cloud.debian.org/images/cloud/bullseye/latest/debian-11-genericcloud-amd64.qcow2
+  arch: x86_64
+
+- location: https://cloud.debian.org/images/cloud/bullseye/latest/debian-11-genericcloud-arm64.qcow2
+  arch: aarch64
+
+- location: https://cloud.debian.org/images/cloud/bullseye/latest/debian-11-genericcloud-ppc64el.qcow2
+  arch: ppc64le
+
+mountTypesUnsupported: [9p]
+
+# debian-11 seems incompatible with vz
+# https://github.com/lima-vm/lima/issues/2855
+vmType: qemu
