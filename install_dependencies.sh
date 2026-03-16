@@ -40,4 +40,4 @@ else
 fi
 
 echo "Configuration complete."
-echo "You can now run ./run_in_docker.sh"
+echo "You can now run ./run_with_display.sh"
