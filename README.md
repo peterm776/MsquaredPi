@@ -36,8 +36,7 @@ chmod +x run_with_display.sh
 5. Emulates the execution environment using `qemu-arm` and software rendering (`llvmpipe` with multi-threading).
 
 ## Included Files
-*   `minecraft-pi`: The original game binary.
-*   `run_with_display.sh`: The main launcher script.
+*   `run_with_display.sh`: The main launcher script (automatically downloads the game client from official Minecraft servers).
 *   `install_dependencies.sh`: Host configuration for Colima/Docker.
 *   `bcm_stub.c`: The C source code for the custom EGL wrapper.
 

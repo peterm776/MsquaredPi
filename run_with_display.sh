@@ -3,6 +3,30 @@
 # Check local bin first
 export PATH="$(pwd)/tools/bin:$PATH"
 
+# Download Game Client if Missing
+if [ ! -f "minecraft-pi" ]; then
+    echo "=========================================================="
+    echo " Downloading Minecraft Pi client (original binary) "
+    echo "=========================================================="
+    echo "Fetching from official minecraft.net site..."
+    curl -L -o minecraft-pi-0.1.1.tar.gz.zip "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/minecraft-pi-0.1.1.tar.gz.zip"
+    
+    if [ -f "minecraft-pi-0.1.1.tar.gz.zip" ]; then
+        echo "Extracting client..."
+        unzip -q minecraft-pi-0.1.1.tar.gz.zip
+        tar -xzf minecraft-pi-0.1.1.tar.gz
+        
+        echo "Moving files and cleaning up..."
+        mv mcpi/* .
+        rm -rf mcpi minecraft-pi-0.1.1.tar.gz minecraft-pi-0.1.1.tar.gz.zip
+        echo "Download successful."
+    else
+        echo "Error: Failed to download the game client."
+        exit 1
+    fi
+    echo "=========================================================="
+fi
+
 # Docker Check
 if ! command -v docker &> /dev/null; then
     if [ -f "$(pwd)/tools/bin/docker" ]; then
