@@ -12,8 +12,10 @@
 void bcm_host_init() {}
 void bcm_host_deinit() {}
 int graphics_get_display_size(int d, uint32_t *w, uint32_t *h) {
-  *w = 640;
-  *h = 480;
+  const char* w_str = getenv("MCPI_WIDTH");
+  const char* h_str = getenv("MCPI_HEIGHT");
+  *w = w_str ? atoi(w_str) : 640;
+  *h = h_str ? atoi(h_str) : 480;
   return 0;
 }
 int vc_dispmanx_display_open(int device) { return 1; }

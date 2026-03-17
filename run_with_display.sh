@@ -207,13 +207,17 @@ docker run --rm -it \
         echo \"  1. Ensure XQuartz is running.\" && \
         echo \"  2. Ensure 'Allow connections from network clients' is checked in XQuartz settings.\" && \
         echo \"  3. Run 'xhost +' in macOS terminal.\" && \
-        true; \
+        echo \"\" && \
+        echo \"ERROR: Cannot start without X11. Exiting...\" && \
+        exit 1; \
     fi && \
 
     echo \"Starting Minecraft Pi...\" && \
     
     qemu-arm \
       -E DISPLAY=\"\$DISPLAY\" \
+      -E MCPI_WIDTH=480 \
+      -E MCPI_HEIGHT=360 \
       -E LD_LIBRARY_PATH=\"\$GAME_LD_PATH\" \
       -E LD_PRELOAD=\"/usr/lib/arm-linux-gnueabihf/libbcm_host.so:\$GLES1_PATH\" \
       -E LIBGL_ALWAYS_SOFTWARE=1 \
